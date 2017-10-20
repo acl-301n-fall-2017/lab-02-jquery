@@ -3,6 +3,11 @@
 var articles = [];
 
 function Article (rawDataObj) {
+    this.title = rawDataObj.title;
+    this.category = rawDataObj.category;
+    this.author = rawDataObj.author;
+    this.authorUrl = rawDataObj.authorUrl;
+    this.publishedOn = rawDataObj.publishedOn;
   // TODO: Use the JS object passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
 }
