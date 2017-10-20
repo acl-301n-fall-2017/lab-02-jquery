@@ -5,6 +5,7 @@ var articles = [];
 function Article (rawDataObj) {
   // TODO: Use the JS object passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
+  this.rawDataObj = rawDataObj
 }
 
 Article.prototype.toHtml = function() {
