@@ -8,6 +8,7 @@ function Article (rawDataObj) {
     this.author = rawDataObj.author;
     this.authorUrl = rawDataObj.authorUrl;
     this.publishedOn = rawDataObj.publishedOn;
+    this.body = rawDataObj.body;
   // TODO: Use the JS object passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
 }
@@ -22,6 +23,12 @@ Article.prototype.toHtml = function() {
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
+
+$newArticle.find(".byline a").text(this.author).attr("href", this.authorUrl);
+// $newArticle.find(".byline a").attr("href", this.authorUrl);
+$newArticle.find("h1").text(this.title);
+$newArticle.find(".article-body").html(this.body);
+$newArticle.find(".byline time").text(this.publishedOn);
 
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest
   of the current template clone with properties from this particular Article instance.
