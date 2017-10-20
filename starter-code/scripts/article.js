@@ -23,6 +23,10 @@ Article.prototype.toHtml = function() {
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
+  $newArticle.find('.byline a').text(this.author).attr('href', this.authorUrl);
+  $newArticle.find('header h1').text(this.title);
+  $newArticle.find('.article-body').html(this.body);
+  $newArticle.find('.byline time').text(this.publishedOn);
 
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest
   of the current template clone with properties from this particular Article instance.
@@ -33,7 +37,9 @@ Article.prototype.toHtml = function() {
     4. article body, and
     5. publication date. */
   
-  $newArticle.find(this.author);
+
+  var $author = $newArticle.find(rawData.title).append();
+  
 
   // Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
