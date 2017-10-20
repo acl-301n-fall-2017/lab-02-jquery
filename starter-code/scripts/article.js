@@ -16,7 +16,7 @@ function Article (rawDataObj) {
 
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
-  $newArticle.removeClass("template"));
+  $newArticle.removeClass("template");
   /* TODO: This cloned article still has a class of template.
   However, in our modules.css stylesheet, we gave all elements
   with a class of template a display of none. Let's make
@@ -25,6 +25,12 @@ Article.prototype.toHtml = function() {
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
 
+
+  $newArticle.find('a').text(this.author).attr('href', this.authorUrl);
+  // $newArticle.find('a').attr('href', this.authorUrl);
+  $newArticle.find('h1').text(this.title);
+  $newArticle.find('section').html(this.body);
+  $newArticle.find('time').text(this.publishedOn);
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest
   of the current template clone with properties from this particular Article instance.
   We need to fill in:
