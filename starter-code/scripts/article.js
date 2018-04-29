@@ -24,6 +24,11 @@ Article.prototype.toHtml = function() {
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
+  $newArticle.find('.byline a').html(this.author);
+  $newArticle.find('.byline a').attr(href, this.authorUrl);
+  $newArticle.find('#articles h1').html(this.title);
+  $newArticle.find('.article-body').html(this.body);
+  $newArticle.find('.byline time').attr(pubdate,this.publishedOn);
 
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest
   of the current template clone with properties from this particular Article instance.
