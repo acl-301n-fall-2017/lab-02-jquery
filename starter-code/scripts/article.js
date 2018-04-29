@@ -7,7 +7,7 @@ function Article (rawDataObj) {
   this.url = rawDataObj.url;
   this.title = rawDataObj.title;
   this.body = rawDataObj.body;
-  this.date = rawDataObj.date;
+  this.publishedOn = rawDataObj.publishedOn;
   // TODO: Use the JS object passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
 }
