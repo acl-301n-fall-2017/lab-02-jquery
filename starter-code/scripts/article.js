@@ -12,7 +12,11 @@ function Article (rawDataObj) {
 }
 
 Article.prototype.toHtml = function() {
+
   var $newArticle = $('article.template').clone();
+  console.log($newArticle);
+  $newArticle.removeClass('template');
+  // console.log($newArticle);
   /* TODO: This cloned article still has a class of template.
   However, in our modules.css stylesheet, we gave all elements
   with a class of template a display of none. Let's make
@@ -31,9 +35,11 @@ Article.prototype.toHtml = function() {
     5. publication date. */
 
   // Display the date as a relative number of 'days ago'
+  
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
+
 };
 
 rawData.sort(function(a,b) {
